@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import LoanDetails from './LoanDetails'
-import logo from './logo.svg';
+import Table from './Table'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
+    this.handleBlur = this.handleBlur.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.state = {
+      disabled: true,
       loanAmount: 0,
       interestRate: 0,
-      loanLength: 0
+      loanLength: 0,
+      monthlyPayment: 0,
+      amortizationSchedule: [],
+      totalPaid: 0,
+      totalInterestPaid: 0
     }  
+  }
+
+  handleBlur(e) {
+    console.log(e.target.value)
   }
 
   handleChange(e) {
@@ -24,10 +34,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <LoanDetails handleChange={this.handleChange} />
-        <h4>{this.state.loanAmount}</h4>
-        <h4>{this.state.interestRate}</h4>
-        <h4>{this.state.loanLength}</h4>
+        <LoanDetails handleBlur={this.handleBlur} handleChange={this.handleChange} disabled={this.state.disabled} />
+        <h2>Amortization Schedule</h2>
+        <hr/>
+        <Table />
       </div>
     )
   }

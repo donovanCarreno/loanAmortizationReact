@@ -22,3 +22,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  width: 200px;
+}
+
+td {
+  width: 200px;
+  border: 1px solid black;
+  text-align: right;
+}
+
+tr:nth-child(even) {
+  background: #CCC;
+}
+
+tr:nth-child(odd) {
+  background: #FFF;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
