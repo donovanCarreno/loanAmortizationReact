@@ -33,11 +33,11 @@ const LoanDetails = (props) => {
             onChange={props.handleChange}
             placeholder="60"/>
         </label><br/>
-        <input id="months" type="radio" name="term" value="months" defaultChecked="checked"/>
+        <input id="months" type="radio" name="term" value="months" defaultChecked="checked" onClick={props.handleRadio}/>
         <label htmlFor="months">Months</label>
-        <input id="years" type="radio" name="term" value="years"/>
+        <input id="years" type="radio" name="term" value="years" onClick={props.handleRadio}/>
         <label htmlFor="years">Years</label><br/><br/>
-        <button disabled={props.disabled} onClick={() => console.log('click!')}>Calculate</button>
+        <button disabled={props.disabled} onClick={props.handleClick}>Calculate</button>
       </fieldset>
     </div>
   )
