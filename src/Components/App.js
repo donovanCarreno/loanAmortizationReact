@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoanDetails from './LoanDetails'
 import Table from './Table'
-import {validateInputs} from './helpers'
+import {validateInputs, calcPayment, createAmortizationSchedule, calcPaid} from './helpers'
 import './App.css';
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleRadio = this.handleRadio.bind(this)
     this.state = {
-      disabled: true,
+      disabled: false,
       loanAmount: 0,
       interestRate: 0,
       loanLength: 0,
@@ -30,17 +30,32 @@ class App extends Component {
 
   handleChange(e) {
     e.preventDefault()
-    const {loanAmount, loanLength, interestRate} = this.state
-    const disabled = validateInputs(loanAmount, loanLength, interestRate)
 
     this.setState({
-      [e.target.name]: e.target.value,
-      disabled
+      [e.target.name]: e.target.value
     })
   }
 
   handleClick() {
-    console.log('hi!')
+    let {loanAmount, loanLength, interestRate, term} = this.state
+
+    if (term === 'years') {
+      loanLength *= 12
+    }
+
+    if (validateInputs(loanAmount, loanLength, interestRate)) {
+      const monthlyPayment = calcPayment(loanAmount, loanLength, interestRate)
+      const amortizationSchedule = createAmortizationSchedule(loanAmount, loanLength, interestRate, monthlyPayment)
+      const totalPaid = calcPaid(amortizationSchedule, 'amount')
+      const totalInterestPaid = calcPaid(amortizationSchedule, 'interest')
+      
+      this.setState({
+        monthlyPayment,
+        amortizationSchedule,
+        totalPaid,
+        totalInterestPaid
+      })
+    }
   }
 
   handleRadio(e) {
@@ -57,13 +72,13 @@ class App extends Component {
           handleChange={this.handleChange}
           handleClick={this.handleClick}
           handleRadio={this.handleRadio}
-          disabled={this.state.disabled} />
+        />
         <h2>Amortization Schedule</h2>
         <hr/>
-        <Table />
+        <Table amortizationSchedule={this.state.amortizationSchedule}/>
       </div>
     )
   }
 }
 
-export default App;
+export default App

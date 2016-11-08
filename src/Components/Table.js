@@ -15,12 +15,19 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody id="tableBody">
-          <TableRow />
+          {props.amortizationSchedule.map((details) => (
+              <TableRow key={details.paymentNumber} details={details} />
+            ))
+          }
         </tbody>
         <tfoot id="tableFooter"></tfoot>
       </table>
     </div>
   )
+}
+
+Table.propTypes = {
+  amortizationSchedule: React.PropTypes.array.isRequired
 }
 
 export default Table

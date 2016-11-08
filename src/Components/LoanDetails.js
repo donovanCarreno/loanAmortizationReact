@@ -37,10 +37,17 @@ const LoanDetails = (props) => {
         <label htmlFor="months">Months</label>
         <input id="years" type="radio" name="term" value="years" onClick={props.handleRadio}/>
         <label htmlFor="years">Years</label><br/><br/>
-        <button disabled={props.disabled} onClick={props.handleClick}>Calculate</button>
+        <button onClick={props.handleClick}>Calculate</button>
       </fieldset>
     </div>
   )
+}
+
+LoanDetails.propTypes = {
+  handleBlur: React.PropTypes.func.isRequired,
+  handleChange: React.PropTypes.func.isRequired,
+  handleRadio: React.PropTypes.func.isRequired,
+  handleClick: React.PropTypes.func.isRequired
 }
 
 export default LoanDetails
