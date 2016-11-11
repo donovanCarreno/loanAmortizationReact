@@ -1,3 +1,7 @@
+fieldset {
+  width: 200px;
+}
+
 table {
   border-collapse: collapse;
 }

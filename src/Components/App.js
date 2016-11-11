@@ -9,7 +9,7 @@ class App extends Component {
     super()
     this.handleBlur = this.handleBlur.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleRadio = this.handleRadio.bind(this)
     this.state = {
       disabled: false,
@@ -36,7 +36,8 @@ class App extends Component {
     })
   }
 
-  handleClick() {
+  handleSubmit(e) {
+    e.preventDefault()
     let {loanAmount, loanLength, interestRate, term} = this.state
 
     if (term === 'years') {
@@ -70,7 +71,7 @@ class App extends Component {
         <LoanDetails
           handleBlur={this.handleBlur}
           handleChange={this.handleChange}
-          handleClick={this.handleClick}
+          handleSubmit={this.handleSubmit}
           handleRadio={this.handleRadio}
         />
         <h2>Amortization Schedule</h2>
