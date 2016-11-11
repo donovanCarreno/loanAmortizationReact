@@ -1,8 +1,7 @@
 import React from 'react'
 import {commaSeparatedString} from '../helpers'
 
-const TableRow = (props) => {
-  const {details} = props
+const TableRow = ({details}) => {
   return (
     <tr>
       <td>{commaSeparatedString(details.paymentNumber)}</td>

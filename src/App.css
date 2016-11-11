@@ -19,7 +19,3 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background: #FFF;
 }
-
-input:invalid {
-  border: 1px solid red;
-}

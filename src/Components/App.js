@@ -46,7 +46,7 @@ class App extends Component {
     if (validateInputs(loanAmount, loanLength, interestRate)) {
       const monthlyPayment = calcPayment(loanAmount, loanLength, interestRate)
       const amortizationSchedule = createAmortizationSchedule(loanAmount, loanLength, interestRate, monthlyPayment)
-      const totalPaid = calcPaid(amortizationSchedule, 'amount')
+      const totalPaid = calcPaid(amortizationSchedule, 'monthlyPayment')
       const totalInterestPaid = calcPaid(amortizationSchedule, 'interest')
 
       this.setState({
@@ -75,7 +75,11 @@ class App extends Component {
         />
         <h2>Amortization Schedule</h2>
         <hr/>
-        <Table amortizationSchedule={this.state.amortizationSchedule}/>
+        <Table
+          amortizationSchedule={this.state.amortizationSchedule}
+          totalPaid={this.state.totalPaid}
+          totalInterestPaid={this.state.totalInterestPaid}
+        />
       </div>
     )
   }

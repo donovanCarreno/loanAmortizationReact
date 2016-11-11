@@ -1,7 +1,20 @@
 import React from 'react'
 import TableRow from './TableRow'
+import {commaSeparatedString} from '../helpers'
 
 const Table = (props) => {
+  let footer = null
+
+  if (props.amortizationSchedule.length > 0) {
+    footer = (
+      <tr>
+        <td></td>
+        <td>{commaSeparatedString(props.totalPaid.toString())}</td>
+        <td>{commaSeparatedString(props.totalInterestPaid.toString())}</td>
+      </tr>
+    )
+  }
+
   return (
     <div>
       <table>
@@ -20,14 +33,18 @@ const Table = (props) => {
             ))
           }
         </tbody>
-        <tfoot id="tableFooter"></tfoot>
+        <tfoot id="tableFooter">
+          {footer}
+        </tfoot>
       </table>
     </div>
   )
 }
 
 Table.propTypes = {
-  amortizationSchedule: React.PropTypes.array.isRequired
+  amortizationSchedule: React.PropTypes.array.isRequired,
+  totalPaid: React.PropTypes.number.isRequired,
+  totalInterestPaid: React.PropTypes.number.isRequired
 }
 
 export default Table
