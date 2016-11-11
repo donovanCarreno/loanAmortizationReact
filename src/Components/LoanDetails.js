@@ -4,8 +4,8 @@ const LoanDetails = (props) => {
   return (
     <div id="loanDetails">
       <fieldset>
+      <legend>Loan Details</legend>
         <form onSubmit={props.handleSubmit}>
-          <legend>Loan Details</legend>
           <label>Loan Amount:<br/>
             <input
               type="text"

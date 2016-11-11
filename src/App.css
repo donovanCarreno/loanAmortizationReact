@@ -1,13 +1,26 @@
 fieldset {
+  /*margin: auto;*/
   width: 200px;
 }
+
+/*#loanDetails {
+  background-color: #4286f4;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}*/
 
 table {
   border-collapse: collapse;
 }
 
-th {
+th, tfoot td {
   width: 200px;
+  background-color: #4286f4;
+  color: white;
+  border: 1px solid black;
 }
 
 td {
@@ -17,9 +30,13 @@ td {
 }
 
 tr:nth-child(even) {
-  background: #CCC;
+  background: #F4B042;
 }
 
 tr:nth-child(odd) {
   background: #FFF;
+}
+
+tfoot {
+  font-weight: bold;
 }

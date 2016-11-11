@@ -11,6 +11,8 @@ const Table = (props) => {
         <td></td>
         <td>{commaSeparatedString(props.totalPaid.toString())}</td>
         <td>{commaSeparatedString(props.totalInterestPaid.toString())}</td>
+        <td></td>
+        <td></td>
       </tr>
     )
   }
@@ -27,13 +29,13 @@ const Table = (props) => {
             <th>Balance</th>
           </tr>
         </thead>
-        <tbody id="tableBody">
+        <tbody>
           {props.amortizationSchedule.map((details) => (
               <TableRow key={details.paymentNumber} details={details} />
             ))
           }
         </tbody>
-        <tfoot id="tableFooter">
+        <tfoot>
           {footer}
         </tfoot>
       </table>
