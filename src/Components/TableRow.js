@@ -1,5 +1,5 @@
 import React from 'react'
-import {commaSeparatedString} from './helpers'
+import {commaSeparatedString} from '../helpers'
 
 const TableRow = (props) => {
   const {details} = props

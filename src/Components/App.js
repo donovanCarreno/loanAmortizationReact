@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import LoanDetails from './LoanDetails'
 import Table from './Table'
-import {validateInputs, calcPayment, createAmortizationSchedule, calcPaid} from './helpers'
-import './App.css';
+import {validateInputs, calcPayment, createAmortizationSchedule, calcPaid} from '../helpers'
+import '../App.css';
 
 class App extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class App extends Component {
       totalPaid: 0,
       totalInterestPaid: 0,
       term: 'months'
-    }  
+    }
   }
 
   handleBlur(e) {
@@ -48,7 +48,7 @@ class App extends Component {
       const amortizationSchedule = createAmortizationSchedule(loanAmount, loanLength, interestRate, monthlyPayment)
       const totalPaid = calcPaid(amortizationSchedule, 'amount')
       const totalInterestPaid = calcPaid(amortizationSchedule, 'interest')
-      
+
       this.setState({
         monthlyPayment,
         amortizationSchedule,
