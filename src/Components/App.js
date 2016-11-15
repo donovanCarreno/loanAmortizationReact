@@ -75,7 +75,6 @@ class App extends Component {
           handleRadio={this.handleRadio}
         />
         <h2>Amortization Schedule</h2>
-        <hr/>
         <Table
           amortizationSchedule={this.state.amortizationSchedule}
           totalPaid={this.state.totalPaid}

@@ -1,16 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
 fieldset {
-  /*margin: auto;*/
+  position: fixed;
+  right: 25px;
   width: 200px;
 }
 
-/*#loanDetails {
-  background-color: #4286f4;
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-}*/
+h2 {
+  background-color: white;
+  border-bottom: 1px solid black;
+  width: 1000px;
+}
 
 table {
   border-collapse: collapse;
