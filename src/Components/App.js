@@ -67,19 +67,23 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <LoanDetails
-          handleBlur={this.handleBlur}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleRadio={this.handleRadio}
-        />
-        <h2>Amortization Schedule</h2>
-        <Table
-          amortizationSchedule={this.state.amortizationSchedule}
-          totalPaid={this.state.totalPaid}
-          totalInterestPaid={this.state.totalInterestPaid}
-        />
+      <div className="container">
+        <div className="details col">
+          <LoanDetails
+            handleBlur={this.handleBlur}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            handleRadio={this.handleRadio}
+          />
+        </div>
+        <div className="schedule">
+          <h2>Amortization Schedule</h2>
+          <Table
+            amortizationSchedule={this.state.amortizationSchedule}
+            totalPaid={this.state.totalPaid}
+            totalInterestPaid={this.state.totalInterestPaid}
+          />
+        </div>
       </div>
     )
   }

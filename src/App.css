@@ -6,13 +6,19 @@ body {
   background-color: #e1e3e8;
 }
 
+.details {
+  max-width: 70%;
+}
+
 h2 {
   border-bottom: 1px solid black;
+  width: 70%;
 }
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  table-layout: fixed;
+  width: 70%;
 }
 
 th, tfoot td {
@@ -24,6 +30,7 @@ th, tfoot td {
 td {
   border: 1px solid black;
   text-align: right;
+  width: 20%;
 }
 
 tr:nth-child(even) {
@@ -38,22 +45,7 @@ tfoot {
   font-weight: bold;
 }
 
-.header {
-  display: none;
-}
-
-span {
-  font-weight: bolder;
-  box-sizing: border-box;
-  background-color: #4286f4;
-  color: white;
-  border-bottom: 1px solid black;
-  display: inline-block;
-  text-align: center;
-  width: 20%;
-}
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
   .schedule {
     position: absolute;
     left: 15%;
@@ -77,9 +69,5 @@ span {
     position: fixed;
     top: 0;
     width: 68%;
-  }
-
-  .hidden {
-    display: none;
   }
 }
