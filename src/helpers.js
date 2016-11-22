@@ -4,17 +4,17 @@ export function validateInputs(loanAmount, loanLength, interestRate) {
   interestRate = Number(interestRate)
 
   if (isNaN(loanAmount) || loanAmount <= 0) {
-    // alert("Loan Amount must be a number greater than 0")
+    alert("Loan Amount must be a number greater than 0")
     return false
   }
 
   if (isNaN(interestRate) || interestRate < 1 || interestRate > 100) {
-    // alert("Interest Rate must be a number between 1 and 100")
+    alert("Interest Rate must be a number between 1 and 100")
     return false
   }
 
   if (isNaN(loanLength) || loanLength <= 0) {
-    // alert("Length of Loan must be a number greater than 0")
+    alert("Length of Loan must be a number greater than 0")
     return false
   }
 
@@ -25,8 +25,8 @@ export function calcPayment(loanAmount, loanLength, interestRate) {
   let monthlyPayment = 0
   const ratePerPeriod = interestRate / 100 / 12
 
-  monthlyPayment = loanAmount * 
-                  (ratePerPeriod * Math.pow(1 + ratePerPeriod,loanLength)) / 
+  monthlyPayment = loanAmount *
+                  (ratePerPeriod * Math.pow(1 + ratePerPeriod,loanLength)) /
                   (Math.pow(1 + ratePerPeriod, loanLength) - 1)
 
   // round to 2 decimal places
@@ -96,7 +96,7 @@ export function calcPaid(amortizationSchedule, key) {
 
 // comma separate a string to mimic currency values
 export function commaSeparatedString(string) {
-  
+
   if (typeof string === 'string') {
     var newString = string.split('.');
 
