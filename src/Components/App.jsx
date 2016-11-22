@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import LoanDetails from './LoanDetails'
 import Table from './Table'
 import {validateInputs, calcPayment, createAmortizationSchedule, calcPaid} from '../helpers'
-import '../App.css';
 
 class App extends Component {
   constructor() {
